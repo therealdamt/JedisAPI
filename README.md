@@ -7,7 +7,7 @@ Redis Java API
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.therealdamt:JedisAPI:-SNAPSHOT'
+	        implementation 'com.github.therealdamt:JedisAPI:1.0-SNAPSHOT'
 	}
 
 	allprojects {
@@ -31,7 +31,7 @@ Redis Java API
 	<dependency>
 	    <groupId>com.github.therealdamt</groupId>
 	    <artifactId>JedisAPI</artifactId>
-	    <version>-SNAPSHOT</version>
+	    <version>1.0-SNAPSHOT</version>
 	</dependency>
 ````
 
