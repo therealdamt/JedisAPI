@@ -27,7 +27,6 @@ Redis Java API
 		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-
 	<dependency>
 	    <groupId>com.github.therealdamt</groupId>
 	    <artifactId>JedisAPI</artifactId>
