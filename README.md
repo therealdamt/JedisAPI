@@ -56,7 +56,7 @@ public class TestPacket implements RedisPacket {
         System.out.println("cool bro!");
     }
 
-    @Override
+    @Override //[Optional]
     public void onSend() {
         System.out.println("sent");
     }
