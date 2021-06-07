@@ -62,3 +62,10 @@ public class TestPacket implements RedisPacket {
     }
 }
 ```
+
+### Credits
+Some of this project was inspired by the [old project](https://github.com/NotNV6/JedisAPI) of NoSequel / NV6 
+
+* [Telegram](https://t.me/therealdamt)
+* [Website](https://damt.xyz)
+* Discord | damt#0886
