@@ -63,7 +63,7 @@ public class TestPacket implements RedisPacket {
 ```
 
 ### Credits
-Some of this project was inspired by an [old project](https://github.com/NotNV6/JedisAPI) of NoSequel / NV6 
+Some of this project was inspired by an [old project](https://github.com/NotNV6/JedisAPI) created by NoSequel / NV6 
 
 * [Telegram](https://t.me/therealdamt)
 * [Website](https://damt.xyz)
