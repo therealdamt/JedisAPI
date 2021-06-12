@@ -8,7 +8,6 @@ public final class ExampleMain {
     public static void main(String[] args) {
         RedisHandler redisHandler = new RedisHandler("127.0.0.1", "", "redis"
         , 6379, false);
-
         redisHandler.send(new TestPacket());
     }
 

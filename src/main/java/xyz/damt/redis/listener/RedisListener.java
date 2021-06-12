@@ -35,7 +35,7 @@ public class RedisListener extends JedisPubSub {
         if (!channel.equalsIgnoreCase(redisHandler.getChannel())) return;
 
         executor.execute(() -> {
-            String[] strings = message.split("||");
+            String[] strings = message.split("///");
 
             System.out.println(strings[1]);
             System.out.println(strings[0]);

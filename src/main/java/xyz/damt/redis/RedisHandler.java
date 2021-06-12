@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import lombok.Getter;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 import xyz.damt.redis.listener.RedisListener;
 import xyz.damt.redis.packet.RedisPacket;
 
@@ -54,13 +55,15 @@ public class RedisHandler {
      */
 
     private void connect() {
-        this.jedisPool = new JedisPool(host, port);
-        this.jedis = jedisPool.getResource();
+        this.jedisPool = new JedisPool(new JedisPoolConfig(), host, port, 2000);
 
-        if (isAuth) jedis.auth(password);
+        try (Jedis jedis = jedisPool.getResource()) {
+            this.jedis = jedis;
+            if (isAuth) jedis.auth(password);
 
-        jedis.connect();
-        jedis.subscribe(redisListener, channel);
+            jedis.connect();
+            jedis.subscribe(redisListener, channel);
+        }
     }
 
     /**
@@ -73,8 +76,12 @@ public class RedisHandler {
         redisPacket.onSend();
 
         new Thread(() -> {
-            if (isAuth) jedis.auth(password);
-            jedis.publish(channel, gson.toJson(redisPacket) + "||" + redisPacket.getClass().getName());
+            try (Jedis jedis = jedisPool.getResource()) {
+                this.jedis = jedis;
+                if (isAuth) jedis.auth(password);
+
+                jedis.publish(channel, gson.toJson(redisPacket) + "///" + redisPacket.getClass().getName());
+            }
         }).start();
     }
 

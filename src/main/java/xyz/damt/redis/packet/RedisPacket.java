@@ -9,7 +9,11 @@ public interface RedisPacket {
      * @Method onSend | Method to execute when a message is sent [Optional]
      */
 
+
     void onReceived();
-    default void onSend() {}
+
+    default void onSend() {
+    }
+
 
 }
