@@ -81,6 +81,7 @@ public class RedisHandler {
                 if (isAuth) jedis.auth(password);
 
                 jedis.publish(channel, gson.toJson(redisPacket) + "///" + redisPacket.getClass().getName());
+                jedisPool.returnResource(jedis);
             }
         }).start();
     }
